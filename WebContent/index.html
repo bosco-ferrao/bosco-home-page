@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Bosco Slider -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<style type="text/css">
+#fader-diagram-your-app {
+	position: relative;
+	height: 515px;
+}
+
+#fader-diagram-modern-java-gray {
+	position: absolute;
+	height: 600px;
+	width: 800px;
+	margin: 31px auto;
+	background: url('./images/BosImgGray.jpg') no-repeat;
+	background-size: 100%;
+}
+
+#fader-diagram-modern-java-color {
+	position: absolute;
+	height: 600px;
+	max-width: 800px;
+	margin: 31px auto;
+	overflow: hidden;
+	width: 200px;
+}
+
+#fader-diagram-modern-java-color div {
+	position: absolute;
+	height: 600px;
+	background: url('./images/BosImgColor.jpg') no-repeat;
+	background-size: 100%;
+	width: 800px;
+}
+
+#fader {
+	background-color: #34302d;
+	width: 6px;
+	height: 515px;
+	border-radius: 4px;
+	position: absolute;
+}
+
+#myRange {
+	width: 800px;
+	position: absolute;
+	top: 50%;
+	opacity: 0;
+}
+</style>
+
+<title></title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	window.onload = function() {
+
+		var slider = document.getElementById("myRange");
+		var coloredImage = document
+				.getElementById("fader-diagram-modern-java-color");
+		var fader = document.getElementById("fader");
+		slider.oninput = function() {
+			coloredImage.style.width = this.value + "px";
+			fader.style.left = this.value + "px";
+		}
+
+	}
+
+	function myFunction(e) {
+		var x = e.clientX;
+		var y = e.clientY;
+
+		var slider = document.getElementById("myRange");
+		var coloredImage = document
+				.getElementById("fader-diagram-modern-java-color");
+		var fader = document.getElementById("fader");
+
+		var assignSliderValue = x;
+		slider.value = assignSliderValue;
+		coloredImage.style.width = assignSliderValue + "px";
+		fader.style.left = assignSliderValue + "px";
+
+	}
+</script>
+
+
+</head>
+
+<body>
+	<h1>Please slide</h1>
+	<div id="fader-diagram-your-app" onmousemove="myFunction(event)">
+		<div class="sidebyside" id="fader-diagram">
+			<div id="fader-diagram-modern-java-gray"></div>
+			<div id="fader-diagram-modern-java-color" style="width: 0px;">
+				<div></div>
+			</div>
+			<div id="fader"></div>
+			<input type="range" min="0" max="800" value="0" class="slider"
+				id="myRange">
+		</div>
+	</div>
+
+
+</body>
+
+</html>
+
+
