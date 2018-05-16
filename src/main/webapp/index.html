@@ -83,27 +83,38 @@
 
 	}
 
-	function myFunction(e) {
+	function myMouseFunction(e) {
 		var x = e.clientX;
 		var y = e.clientY;
-
+		
+		myXmove(x);
+	}
+	
+	function myTouchFunction(event) {
+		  var x = event.touches[0].clientX;
+		  var y = event.touches[0].clientY;
+		  
+		  myXmove(x);
+	}
+	
+	function myXmove(myX){
+		var assignSliderValue = myX;
+		
 		var slider = document.getElementById("myRange");
 		var coloredImage = document
 				.getElementById("fader-diagram-modern-java-color");
 		var fader = document.getElementById("fader");
 
-		var assignSliderValue = x;
 		slider.value = assignSliderValue;
 		coloredImage.style.width = assignSliderValue + "px";
 		fader.style.left = assignSliderValue + "px";
-
 	}
 </script>
 
 
 </head>
 
-<body onmousemove="myFunction(event)">
+<body onmousemove="myMouseFunction(event)" ontouchmove="myTouchFunction(event)">
 
 	<h2 align="center">
 		<a href="https://www.linkedin.com/in/boscoferrao/">Visit my
