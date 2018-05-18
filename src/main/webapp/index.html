@@ -60,14 +60,10 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		/* $("button").click(function(){
-		    $("p").hide();
-		}); */
+		
 		var slider = document.getElementById("myRange");
-		/*var coloredImage = document
-				.getElementById("fader-diagram-modern-java-color");
-		var fader = document.getElementById("fader");
-		 */slider.oninput = function() {
+		
+		slider.oninput = function() {
 			$("#fader-diagram-modern-java-color").width(this.value);
 			$("#fader").css({
 				"left" : this.value + "px"
