@@ -54,67 +54,61 @@
 
 <title></title>
 
-
-
-
-
-
-
-
-
-
-
-
-
+<script src="js/jquery-3.3.1.min.js"></script>
 
 
 
 <script type="text/javascript">
-	window.onload = function() {
-
+	$(document).ready(function() {
+		/* $("button").click(function(){
+		    $("p").hide();
+		}); */
 		var slider = document.getElementById("myRange");
-		var coloredImage = document
+		/*var coloredImage = document
 				.getElementById("fader-diagram-modern-java-color");
 		var fader = document.getElementById("fader");
-		slider.oninput = function() {
-			coloredImage.style.width = this.value + "px";
-			fader.style.left = this.value + "px";
+		 */slider.oninput = function() {
+			$("#fader-diagram-modern-java-color").width(this.value);
+			$("#fader").css({
+				"left" : this.value + "px"
+			});
 		}
 
-	}
+		$(document).mousemove(function(e) {
+			var x = e.clientX;
+			var y = e.clientY;
 
-	function myMouseFunction(e) {
-		var x = e.clientX;
-		var y = e.clientY;
-		
-		myXmove(x);
-	}
-	
-	function myTouchFunction(event) {
-		  var x = event.touches[0].clientX;
-		  var y = event.touches[0].clientY;
-		  
-		  myXmove(x);
-	}
-	
-	function myXmove(myX){
-		var assignSliderValue = myX;
-		
-		var slider = document.getElementById("myRange");
-		var coloredImage = document
-				.getElementById("fader-diagram-modern-java-color");
-		var fader = document.getElementById("fader");
+			myXmove(x);
+		});
 
-		slider.value = assignSliderValue;
-		coloredImage.style.width = assignSliderValue + "px";
-		fader.style.left = assignSliderValue + "px";
-	}
+		$('body').bind('touchmove', function(event) {
+			e.preventDefault();
+			//CODE GOES HERE
+			var x = event.touches[0].clientX;
+			var y = event.touches[0].clientY;
+
+			myXmove(x);
+		});
+
+
+		function myXmove(myX) {
+			var assignSliderValue = myX;
+
+			$("#myRange").val(assignSliderValue);
+
+			$("#fader-diagram-modern-java-color").width(assignSliderValue);
+			$("#fader").css({
+				"left" : assignSliderValue + "px"
+			});
+		}
+
+	});
 </script>
 
 
 </head>
 
-<body onmousemove="myMouseFunction(event)" ontouchmove="myTouchFunction(event)">
+<body>
 
 	<h2 align="center">
 		<a href="https://www.linkedin.com/in/boscoferrao/">Visit my
